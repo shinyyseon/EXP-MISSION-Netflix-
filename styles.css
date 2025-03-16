@@ -1,0 +1,373 @@
+/* 공통 초기화 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #141414;
+  color: #fff;
+}
+
+/* 헤더 */
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 68px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4%;
+  z-index: 999;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+/* 로고 이미지 */
+.logo-img {
+  height: 25px;
+  margin-right: 40px;
+}
+
+/* 메인 네비게이션 */
+.main-nav ul {
+  display: flex;
+  list-style: none;
+}
+
+.main-nav li {
+  margin-right: 20px;
+}
+
+.main-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s ease-in-out;
+}
+
+.main-nav a:hover {
+  color: #b3b3b3;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;   /* ✅ 모든 아이콘 세로 가운데 정렬 */
+  gap: 16px;              /* ✅ 아이콘 간격 정리 */
+}
+
+/* 헤더 오른쪽 */
+.header-right a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease-in-out;
+}
+
+.header-right a:hover {
+  color: #b3b3b3;
+}
+
+/* ✅ 메인 배너 (히어로 섹션) */
+.hero {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 85vh; /* 콘텐츠가 보이도록 전체 높이 조정 */
+  min-height: 450px;
+  overflow: hidden;
+  background-color: #000;
+  margin-bottom: 50px;  /* 콘텐츠와 간격 제거 */
+}
+
+/* 배경 이미지 */
+.hero.static-image.image-layer {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 0%;
+}
+
+/* ✅ 배너 오버레이 (그라디언트) */
+.hero-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent 70%);
+  z-index: 1;
+}
+
+/* ✅ 배너 콘텐츠 (텍스트, 버튼 정렬) */
+.hero-content {
+  position: absolute;
+  bottom: 8%;
+  left: 4%;
+  right: 4%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero-text {
+  max-width: 480px;
+  font-size: 0.95rem;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 150px;
+  width: 100%;
+  background: linear-gradient(to bottom, transparent, #141414);
+  z-index: 1;
+}
+
+
+/* 제목 */
+.show-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #f3b253;
+}
+
+/* 순위 배지 */
+.show-rank {
+  display: inline-block;
+  margin-bottom: 15px;
+  margin-top: 20px;
+  font-size: 1.2rem;
+  background-color: rgba(51, 51, 51, 0.6);
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+/* 설명 */
+.show-description {
+  margin: 15px 0;
+  line-height: 1.4;
+  font-size: 15px;
+  color: #d2d2d2;
+}
+
+/* ✅ 버튼 그룹 (재생, 상세정보) */
+.button-group {
+  font-size: 1rem;
+  padding: 10px 24px;
+  margin-right: 10px;
+  border-radius: 4px;
+}
+
+.button-group button {
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* 버튼 스타일 */
+.play-btn {
+  background-color: #fff;
+  color: #000;
+  font-weight: bold;
+}
+
+.info-btn {
+  background-color: rgba(109, 109, 110, 0.7);
+  color: #fff;
+}
+
+/* 연령 등급 표시 */
+.rating-badge {
+  position: absolute;
+  bottom: 10%;
+  right: 2%;
+  background-color: rgba(0, 0, 0, 0, 0.6);
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* ✅ 콘텐츠와의 간격 조정 */
+.recommend-section {
+  position: relative;
+  z-index: 2;
+  margin-top: -100px; /* 배너 아래 콘텐츠가 자연스럽게 보이게 */
+  padding: 50px 4% 40px;
+  margin-bottom: 50px;
+}
+
+/* 섹션 제목 */
+.recommend-title {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+/* 가로 배열을 위한 Flex 컨테이너 */
+.thumbnail-list {
+  display: flex;
+  gap: 10px; /* 아이템 간 간격 */
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-behavior: smooth;
+}
+
+/* 각 썸네일 자리 */
+.thumbnail-item {
+  flex: 0 0 auto;
+  width: 250px;
+  height: 140px;
+  background-color: #333;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* 이미지 스타일: 이미지 전체가 보이도록 */
+.thumbnail-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* 잘리지 않고 전체가 보임 */
+  object-position: center;
+  display: block;
+}
+
+.thumbnail-item:hover {
+  transform: scale(1.05);
+}
+
+/* 콘텐츠 div 호버 효과 */
+.ptrack-content {
+  transition: transform 0.3s ease;
+}
+
+.ptrack-content:hover {
+  transform: scale(1.05);
+}
+
+.boxart-container {
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.boxart-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.fallback-text-container {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: #fff;
+  background-color: rgba(0,0,0,0.5);
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.fallback-text {
+  font-size: 0.9rem;
+}
+
+/* ✅ 반응형 조정 */
+@media (max-width: 768px) {
+  .hero {
+    height: 75vh; /* 모바일에서는 배너 높이를 조금 줄임 */
+  }
+  .hero-content {
+    bottom: 10%;
+  }
+}
+
+.footer {
+  background-color: #141414;
+  color: #aaa;
+  padding: 60px 4%;
+  font-size: 0.85rem;
+}
+
+.footer-container {
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: left; /* ✅ 전체 좌측 정렬 */
+}
+
+.footer-icons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.footer-icons a {
+  font-size: 1.2rem;
+  color: #aaa;
+  transition: color 0.3s ease;
+}
+
+.footer-icons a:hover {
+  color: #fff;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4열 정렬 */
+  gap: 10px 20px;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.footer-links li a {
+  text-decoration: none;
+  color: #aaa;
+  font-size: 0.85rem;
+}
+
+.footer-links li a:hover {
+  text-decoration: underline;
+}
+
+.footer-service-btn {
+  background-color: transparent;
+  color: #aaa;
+  border: 1px solid #aaa;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  margin-bottom: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.footer-service-btn:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.footer-info {
+  font-size: 0.75rem;
+  color: #666;
+  max-width: 700px;
+  line-height: 1.6;
+}
