@@ -7,10 +7,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-  <!-- 헤더 영역 -->
   <header class="main-header">
     <div class="header-left">
-      <!-- 로고 이미지 (Wikipedia SVG 버전) -->
       <a href="#">
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1920px-Netflix_2015_logo.svg.png"
@@ -30,29 +28,30 @@
       </nav>
     </div>
     <div class="header-right">
-      <a href="#" class="search-icon" aria-label="검색">
+      <a href="#" aria-label="검색">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" role="img" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10ZM15.6177 17.0319C14.078 18.2635 12.125 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10C19 12.125 18.2635 14.078 17.0319 15.6177L22.7071 21.2929L21.2929 22.7071L15.6177 17.0319Z" fill="currentColor"/>
         </svg>
       </a>
-      <a href="#" class="bell-icon" aria-label="알림">
+      <a href="#" aria-label="알림">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" role="img" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M13.0002 4.07092C16.3924 4.55624 19 7.4736 19 11V15.2538C20.0489 15.3307 21.0851 15.4245 22.1072 15.5347L21.8928 17.5232C18.7222 17.1813 15.4092 17 12 17C8.59081 17 5.27788 17.1813 2.10723 17.5232L1.89282 15.5347C2.91498 15.4245 3.95119 15.3307 5.00003 15.2538V11C5.00003 7.47345 7.60784 4.55599 11.0002 4.07086V2H13.0002V4.07092ZM17 15.1287V11C17 8.23858 14.7614 6 12 6C9.2386 6 7.00003 8.23858 7.00003 11V15.1287C8.64066 15.0437 10.3091 15 12 15C13.691 15 15.3594 15.0437 17 15.1287ZM8.62593 19.3712C8.66235 20.5173 10.1512 22 11.9996 22C13.848 22 15.3368 20.5173 15.3732 19.3712C15.3803 19.1489 15.1758 19 14.9533 19H9.0458C8.82333 19 8.61886 19.1489 8.62593 19.3712Z" fill="currentColor"/>
         </svg>
       </a>
-      <a href="#" class="profile-icon" aria-label="프로필">프로필</a>
+      <a href="#" aria-label="프로필">프로필</a>
     </div>
   </header>
 
-  <!-- 메인 배너(히어로) 섹션 -->
   <section class="hero">
-    <!-- 예시로 기존 이미지/그라디언트/텍스트 구조 -->
     <img class="hero static-image image-layer" src="https://occ-0-395-325.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABS9BRLYGiWnYVlPoAsxc81D8UgqaMGsaetmKqrtAzATKDm3Kk6zJ17aBoGiffy_757uGQ9R1dkSZR2Ps0EwcYaikz6YFS-aaJ8sx.webp?r=cd6" alt="메인 배너 이미지">
     <div class="hero-gradient"></div>
     <div class="hero-content">
       <div class="hero-text">
         <img alt="이혼숙려캠프" class="title-logo" src="https://occ-0-395-325.1.nflxso.net/dnm/api/v6/LmEnxtiAuzezXBjYXPuDgfZ4zZQ/AAAABcCRMvbA3jNpdj4ovmoik0dfFYYpMysb_mrcicJ3HPmRIjqAMWBkJtJMtG1LAm5C7UYe0uklSp0vomwPrziBdbw27TmTf5GhZOJjnaNbLfvG.webp?r=611" title="이혼숙려캠프">
-        <span class="show-rank">오늘 시리즈 순위 7위</span>
+        <div class="rank-info">
+          <img src="top10.png" alt="Top 10 배지">
+          <span class="show-rank">오늘 시리즈 순위 7위</span>
+        </div>
         <p class="show-description">
           이혼 직전의 부부들이 '이혼 숙려 캠프'에 자진 입소한다. 멘토의 도움을 받으며<br>
           관계를 회복할 최후의 기회. 마지막에는 이혼 여부를 결정해야 한다. 위기의<br>
@@ -70,7 +69,6 @@
 <!-- 추천 콘텐츠 섹션 -->
 <section class="recommend-section">
   <h3 class="recommend-title">꼭 챙겨보세요! 회원님을 위한 콘텐츠</h3>
-  <div class="scroll-wrapper">
   <div class="thumbnail-list">
     <div class="thumbnail-container">
         <div class="thumbnail-item">
@@ -117,7 +115,6 @@
 <section class="recommend-section">
   <h3 class="recommend-title">어워드 수상 시리즈</h3>
   <div class="thumbnail-list">
-    <!-- 이미지를 넣을 자리: img 태그이지만 src는 비워둠 -->
     <div class="thumbnail-container">
       <div class="thumbnail-item">
         <img src="https://occ-0-395-325.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABQQwx58dVql8XeYw--xnUnHtALxdEshqa7pMRF15s8Jw6YvoB8ooEywH_hru2nJSpxAiwJ0LrG5RQKpxjtmc_O0gPOAmwM4DTkhUSIUv-o779SzC_p_yKvKrW5ceRTJiBQ48.jpg?r=c31" alt="img">
@@ -158,7 +155,6 @@
       <div class="thumbnail-item">
         <img src="https://occ-0-395-325.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABSVRDy-byuBgOQv5BpWC3UT3CGhw_AMTEHq0mJ-iAt83RproDdtCASJgIrAROjtkNbBXcXlazkrmlwrHlLNtiu9Xa_yy1HjCChA.webp?r=7c7" alt="img">
       </div>
-    </div>
   </div>
 </section>
 
