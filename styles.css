@@ -256,27 +256,6 @@ body {
   transform: scale(1.05);
 }
 
-/* 콘텐츠 div 호버 효과 */
-.ptrack-content {
-  transition: transform 0.3s ease;
-}
-
-.ptrack-content:hover {
-  transform: scale(1.05);
-}
-
-.boxart-container {
-  border-radius: 4px;
-  overflow: hidden;
-  position: relative;
-}
-
-.boxart-image {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
 .fallback-text-container {
   position: absolute;
   bottom: 10px;
