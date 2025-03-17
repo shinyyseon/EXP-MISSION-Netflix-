@@ -33,3 +33,5 @@ HTML과 CSS를 이용하여 넷플릭스 메인화면 클론 만들기 실습.
 <br>
 # 완성 화면
 <img width="1511" alt="Image" src="https://github.com/user-attachments/assets/564c7620-7323-45ad-8a18-5caf356c5187" />
+<img width="1506" alt="Image" src="https://github.com/user-attachments/assets/2642bed7-e3cc-4708-8fd2-023aeb6e7da6" />
+<img width="1510" alt="Image" src="https://github.com/user-attachments/assets/58082c94-6a8d-4073-bb60-d847d781c6f8" />
