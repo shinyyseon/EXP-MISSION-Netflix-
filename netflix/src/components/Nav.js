@@ -1,9 +1,25 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './Nav.css'
 
 export default function Nav() {
+    const [show, setShow] = useState(false);
+
+    useEffect(() => {
+       window.addEventListener("scroll", () => {
+           console.log(window.scrollY);
+           if(window.scrollY > 50) {
+               setShow(true);
+           } else {
+               setShow(false);
+           }
+       })
+        return () => {
+           window.removeEventListener("scroll", () => {});
+        }
+    }, []);
+
     return (
-        <nav className={"nav"}>
+        <nav className={`nav ${show && 'nav_black'}`}>
             <div className="main_header">
                 <div className="nav_menu">
                     <img

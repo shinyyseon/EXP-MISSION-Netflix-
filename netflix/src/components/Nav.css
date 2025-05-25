@@ -21,6 +21,7 @@
 .nav_menu {
     display: flex;
     align-items: center;
+    position: fixed;
 }
 
 .nav ul {
@@ -44,9 +45,19 @@
     color: black;
 }
 
-. nav_black {
+.nav_black {
     background-color: black;
+    position: fixed;
 }
+
+.nav_black a {
+    color: white;
+}
+
+.nav_black .header_right svg {
+    color: white;
+}
+
 
 .nav_logo {
     width: 80px;
