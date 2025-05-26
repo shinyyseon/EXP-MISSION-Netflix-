@@ -40,9 +40,9 @@ export default function Banner() {
                             className="banner_button play"
                             onClick={() => setIsClicked(true)}
                         >
-                            Play</button>
+                            재생</button>
                         <button className="banner_button info">
-                            <div className="space"></div> More Information
+                            <div className="space"></div> 상세 정보
                         </button>
                     </div>
                     <h1 className="banner_description">{truncate(movie.overview, 100)}</h1>

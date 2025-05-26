@@ -83,3 +83,9 @@
     width: 30px;
     object-fit: contain;
 }
+
+@media screen and (max-width: 900px) {
+    .nav_menu ul {
+        display: none;
+    }
+}
