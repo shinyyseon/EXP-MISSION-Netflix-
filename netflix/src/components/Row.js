@@ -6,15 +6,13 @@ export default function Row({isLargeRow, title, id, fetchUrl}) {
     const [movies, setMovie] = useState([]);
 
     useEffect(() => {
+        const fetchMovieData = async () => {
+            const request = await axios.get(fetchUrl);
+            setMovie(request.data.results);
+        }
+
         fetchMovieData();
     }, [fetchUrl]);
-
-    const fetchMovieData = async () => {
-        const request = await axios.get(fetchUrl);
-        console.log('API Response:', request);
-        setMovie(request.data.results);
-        return request;
-    }
 
     return (
         <section className="row">
