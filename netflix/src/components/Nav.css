@@ -36,14 +36,19 @@
 }
 
 .nav a {
-    color: black;
+    color: white;
     text-decoration: none;
     font-size: 14px;
     transition: color 0.2s ease-in-out;
 }
 
 .nav a:hover {
-    color: black;
+    color: #b3b3b3;
+}
+
+.header_right svg {
+    color: white;
+    cursor: pointer;
 }
 
 .nav_black {
