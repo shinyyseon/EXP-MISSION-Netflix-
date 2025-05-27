@@ -3,6 +3,7 @@ import Nav from "./components/Nav";
 import Banner from "./components/Banner";
 import Row from "./components/Row";
 import requests from "./api/requests";
+import Footer from "./components/Footer";
 
 function App() {
     return (
@@ -23,6 +24,8 @@ function App() {
             <Row title="공포 영화" id="HM" fetchUrl={requests.fetchHorrorMovies} />
             <Row title="로맨스 영화" id="RM" fetchUrl={requests.fetchRomanceMovies} />
             <Row title="다큐멘터리" id="DM" fetchUrl={requests.fetchDocumentaries} />
+
+            <Footer />
         </div>
     );
 }
