@@ -84,7 +84,46 @@
     object-fit: contain;
 }
 
-@media screen and (max-width: 900px) {
+.search_wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.search_input {
+    height: 30px;
+    width: 240px;
+    background-color: black;
+    border: 1px solid white;
+    color: white;
+    padding: 5px 10px 5px 45px;
+    border-radius: 4px;
+    outline: none;
+    font-size: 14px;
+
+    opacity: 0;
+    transform: translateX(20px);
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.search_input.show {
+    opacity: 1;
+    transform: translateX(0px);
+    pointer-events: auto;
+}
+
+.search_inner_icon {
+    position: absolute;
+    left: 10px;
+    fill: white;
+    z-index: 1;
+    pointer-events: none;
+}
+
+
+@media screen and (max-width: 1050px) {
     .nav_menu ul {
         display: none;
     }
