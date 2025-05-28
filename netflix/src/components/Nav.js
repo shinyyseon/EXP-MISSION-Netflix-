@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useRef} from 'react'
 import './Nav.css'
 import {useNavigate} from "react-router-dom";
+import useOnClickOutside from "../hooks/useOnClickOutside";
 
 export default function Nav() {
     const [show, setShow] = useState(false);
@@ -23,17 +24,7 @@ export default function Nav() {
         }
     }, []);
 
-    useEffect(() => {
-        const handleClickOutside = (e) => {
-            if (searchRef.current && !searchRef.current.contains(e.target)) {
-                setShowSearch(false);
-            }
-        };
-        if (showSearch) {
-            document.addEventListener('mousedown', handleClickOutside);
-        }
-        return () => document.removeEventListener('mousedown', handleClickOutside);
-    }, [showSearch]);
+    useOnClickOutside(searchRef, () => setShowSearch(false))
 
     const handleChange = (e) => {
         setSearchValue(e.target.value);
