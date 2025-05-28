@@ -1,10 +1,15 @@
 import React, {useState, useEffect, useRef} from 'react'
 import './Nav.css'
+import {useNavigate} from "react-router-dom";
+import useOnClickOutside from "../hooks/useOnClickOutside";
 
 export default function Nav() {
     const [show, setShow] = useState(false);
     const [showSearch, setShowSearch] = useState(false);
     const searchRef = useRef(null);
+    const [searchValue, setSearchValue] = useState("");
+    const navigate = useNavigate();
+
 
     useEffect(() => {
        window.addEventListener("scroll", () => {
@@ -19,17 +24,12 @@ export default function Nav() {
         }
     }, []);
 
-    useEffect(() => {
-        const handleClickOutside = (e) => {
-            if (searchRef.current && !searchRef.current.contains(e.target)) {
-                setShowSearch(false);
-            }
-        };
-        if (showSearch) {
-            document.addEventListener('mousedown', handleClickOutside);
-        }
-        return () => document.removeEventListener('mousedown', handleClickOutside);
-    }, [showSearch]);
+    useOnClickOutside(searchRef, () => setShowSearch(false))
+
+    const handleChange = (e) => {
+        setSearchValue(e.target.value);
+        navigate(`/search?q=${e.target.value}`);
+    }
 
     return (
         <nav className={`nav ${show && 'nav_black'}`}>
@@ -39,7 +39,7 @@ export default function Nav() {
                         alt="Netflix logo"
                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/250px-Netflix_2015_logo.svg.png"
                         className="nav_logo"
-                        onClick={() => window.location.reload()}
+                        onClick={() => window.location.assign(window.location.origin)}
                     />
                     <ul>
                         <li><a href={"/"}>홈</a></li>
@@ -66,6 +66,8 @@ export default function Nav() {
                                 <path fill="currentColor" d="M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10ZM15.6177 17.0319C14.078 18.2635 12.125 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10C19 12.125 18.2635 14.078 17.0319 15.6177L22.7071 21.2929L21.2929 22.7071L15.6177 17.0319Z" clipRule="evenodd" fillRule="evenodd"></path>
                             </svg>
                             <input
+                                value={searchValue}
+                                onChange={handleChange}
                                 type="text"
                                 className={`search_input ${showSearch ? 'show' : ''}`} ref={searchRef}
                                 placeholder="제목, 사람, 장르"

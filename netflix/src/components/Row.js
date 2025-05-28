@@ -2,6 +2,12 @@ import React, {useEffect, useState} from 'react'
 import axios from "../api/axios";
 import './Row.css'
 import MovieModal from "./MovieModal";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+import  { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
 export default function Row({isLargeRow, title, id, fetchUrl}) {
     const [movies, setMovie] = useState([]);
@@ -25,43 +31,49 @@ export default function Row({isLargeRow, title, id, fetchUrl}) {
     return (
         <section className="row">
             <h2>{title}</h2>
-            <div className="slider">
-                <div className="slider_arrow_left"
-                     onClick={() =>{
-                         document.getElementById(id).scrollLeft -= window.innerWidth - 80;
-                     }}>
-                    <span className="arrow"
-                          onClick={() =>{
-                        document.getElementById(id).scrollLeft -= window.innerWidth - 80;
-                    }}>
-                        {"<"}
-                    </span>
-                </div>
+            <Swiper
+                modules={[Navigation, Pagination, Scrollbar, A11y]}
+                loop={true}
+                navigation
+                pagination={{ clickable: true }}
+                scrollbar={{ draggable: true }}
+                className="custom-swiper"
+                breakpoints={{
+                    1378: {
+                        slidesPerView: 7,
+                        slidePerGroup: 7,
+                    },
+                    998: {
+                        slidesPerView: 6,
+                        slidePerGroup: 6,
+                    },
+                    625: {
+                        slidesPerView: 5,
+                        slidePerGroup: 5,
+                    },
+                    0: {
+                        slidesPerView: 4,
+                        slidePerGroup: 4,
+                    },
+                }}
+            >
                 <div id={id} className="row_posters">
-                    {movies &&movies.map(movie => (
-                        <img
-                            key={movie.id}
-                            className={`row_poster ${isLargeRow && "row_posterLarge"}`}
-                            src={`https://image.tmdb.org/t/p/original/${
-                                movie.poster_path ? movie.poster_path : movie.backdrop_path
-                            }`}
-                            alt={movie.name}
-                            onClick={() => handleClick(movie)}
-                        />
+                    {movies && movies.map(movie => (
+                        <SwiperSlide>
+                            <img
+                                key={movie.id}
+                                className={`row_poster ${isLargeRow && "row_posterLarge"}`}
+                                src={`https://image.tmdb.org/t/p/original/${
+                                    movie.poster_path ? movie.poster_path : movie.backdrop_path
+                                }`}
+                                alt={movie.name}
+                                onClick={() => handleClick(movie)}
+                            />
+                        </SwiperSlide>
                     ))}
                 </div>
-                <div className="slider_arrow_right"
-                     onClick={() =>{
-                    document.getElementById(id).scrollLeft += window.innerWidth - 80;
-                }}>
-                    <span className="arrow"
-                        onClick={() =>{
-                            document.getElementById(id).scrollLeft += window.innerWidth - 80;
-                        }}>
-                        {">"}
-                    </span>
-                </div>
-            </div>
+            </Swiper>
+
                 { modalOpen && (
                      <MovieModal {...movieSelected} setModalOpen={setModalOpen} />
                 )}
