@@ -186,6 +186,7 @@ h2 {
 
 .swiper-pagination-horizontal {
     width: auto !important;
+    margin-right: 15px !important;
 }
 
 .swiper-custom-pagination {
