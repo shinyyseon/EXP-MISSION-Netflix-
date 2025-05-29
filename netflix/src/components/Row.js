@@ -30,12 +30,16 @@ export default function Row({isLargeRow, title, id, fetchUrl}) {
 
     return (
         <section className="row">
-            <h2>{title}</h2>
+            <div className="row-header">
+                <h2>{title}</h2>
+                <div className={`swiper-custom-pagination pagination-${id}`}></div>
+            </div>
+
             <Swiper
                 modules={[Navigation, Pagination, Scrollbar, A11y]}
                 loop={true}
                 navigation
-                pagination={{ clickable: true }}
+                pagination={{ clickable: true, el: `.pagination-${id}`}}
                 scrollbar={{ draggable: true }}
                 className="custom-swiper"
                 breakpoints={{
