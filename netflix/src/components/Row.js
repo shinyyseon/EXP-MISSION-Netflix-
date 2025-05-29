@@ -62,19 +62,26 @@ export default function Row({isLargeRow, title, id, fetchUrl}) {
                 }}
             >
                 <div id={id} className="row_posters">
-                    {movies && movies.map(movie => (
-                        <SwiperSlide>
-                            <img
-                                key={movie.id}
-                                className={`row_poster ${isLargeRow && "row_posterLarge"}`}
-                                src={`https://image.tmdb.org/t/p/original/${
-                                    movie.poster_path ? movie.poster_path : movie.backdrop_path
-                                }`}
-                                alt={movie.name}
-                                onClick={() => handleClick(movie)}
-                            />
-                        </SwiperSlide>
-                    ))}
+                    {movies && movies.map((movie, index) => {
+                        const isFirst = index === 0;
+                        const isLast = index === movies.length - 1;
+
+                        const positionClass = isFirst ? "first-slide" : isLast ? "last-slide" : "";
+
+                        return (
+                            <SwiperSlide key={movie.id} className={positionClass}>
+                                <img
+                                    className={`row_poster ${isLargeRow ? "row_posterLarge" : ""}`}
+                                    src={`https://image.tmdb.org/t/p/original/${
+                                        movie.poster_path ? movie.poster_path : movie.backdrop_path
+                                    }`}
+                                    alt={movie.name}
+                                    onClick={() => handleClick(movie)}
+                                />
+                            </SwiperSlide>
+                        );
+                    })}
+
                 </div>
             </Swiper>
 

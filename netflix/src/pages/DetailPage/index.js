@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {useParams} from "react-router-dom";
 import axios from "../../api/axios";
+import "./DetailCss.css"
 
 export default function DetailPage() {
     let { movieId } = useParams();
@@ -23,6 +24,11 @@ export default function DetailPage() {
                 src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
                 alt="poster"
             />
+            <div className="detail_text_overlay">
+                <h2 className="modal_title">{movie.title || movie.name}</h2>
+                <p className="modal_overview">평점: {movie.vote_average}</p>
+                <p className="modal_overview">{movie.overview}</p>
+            </div>
         </section>
     )
 }

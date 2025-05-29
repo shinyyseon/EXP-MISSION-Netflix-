@@ -106,10 +106,29 @@ h2 {
 
 .row_posterLarge {
     max-height: 320px;
+    position: relative;
+    z-index: 1;
+    transform-origin: center center;
+    transition: all 0.3s ease;
+}
+
+.row_posterLarge {
+    transform-origin: center center;
+}
+
+/* 화면 맨 왼쪽 */
+.first-visible-slide .row_posterLarge {
+    transform-origin: left center;
+}
+
+/* 화면 맨 오른쪽 */
+.last-visible-slide .row_posterLarge {
+    transform-origin: right center;
 }
 
 .row_posterLarge:hover {
-    transform: scale(1.1);
+    transform: scale(1.3);
+    z-index: 999;
     opacity: 1;
 }
 
@@ -156,7 +175,13 @@ h2 {
 }
 
 .custom-swiper {
+    overflow: visible !important;
+    z-index: initial;
     position: relative;
+}
+
+.swiper-slide {
+    overflow: visible !important;
 }
 
 .swiper-pagination-horizontal {
