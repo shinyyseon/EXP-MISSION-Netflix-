@@ -1,0 +1,32 @@
+.detail_poster_wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.modal_poster_img {
+    width: 100%;
+    display: block;
+}
+
+.detail_text_overlay {
+    position: absolute;
+    top: 5rem;
+    left: 20px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    max-width: 600px;
+    border-radius: 8px;
+}
+
+.modal_title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.modal_overview {
+    font-size: 16px;
+    line-height: 1.5;
+}

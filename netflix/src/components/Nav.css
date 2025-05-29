@@ -1,3 +1,14 @@
+@keyframes slideFromRight {
+    from {
+        transform: scaleX(0);
+        opacity: 0;
+    }
+    to {
+        transform: scaleX(1);
+        opacity: 1;
+    }
+}
+
 .nav {
     top: 0;
     width: 100%;
@@ -46,9 +57,14 @@
     color: #b3b3b3;
 }
 
+.header_right svg:hover {
+    color: #b3b3b3;
+}
+
 .header_right svg {
     color: white;
     cursor: pointer;
+    transition: color 0.2s ease-in-out;
 }
 
 .nav_black {
@@ -89,11 +105,25 @@
     display: flex;
     align-items: center;
     margin-left: 10px;
+    width: 240px;
+    justify-content: flex-end;
+}
+
+.search_box {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 240px;
+    transform-origin: right;
+    opacity: 0;
+    animation: slideFromRight 0.6s ease forwards;
 }
 
 .search_input {
     height: 30px;
     width: 240px;
+    position: relative;
+    right: 0;
     background-color: black;
     border: 1px solid white;
     color: white;
@@ -101,27 +131,14 @@
     border-radius: 4px;
     outline: none;
     font-size: 14px;
-
-    opacity: 0;
-    transform: translateX(20px);
-    pointer-events: none;
-    transition: all 0.3s ease;
-}
-
-.search_input.show {
-    opacity: 1;
-    transform: translateX(0px);
-    pointer-events: auto;
 }
 
 .search_inner_icon {
     position: absolute;
     left: 10px;
     fill: white;
-    z-index: 1;
-    pointer-events: none;
+    z-index: 2;
 }
-
 
 @media screen and (max-width: 1050px) {
     .nav_menu ul {

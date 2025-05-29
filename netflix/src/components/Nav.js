@@ -60,19 +60,21 @@ export default function Nav() {
                     )}
 
                     {showSearch && (
-                        <div className="search_wrapper" ref={searchRef}>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" role="img" viewBox="0 0 24 24" width="24"
-                                 height="24" data-icon="MagnifyingGlassStandard" aria-hidden="true" className="search_inner_icon">
-                                <path fill="currentColor" d="M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10ZM15.6177 17.0319C14.078 18.2635 12.125 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10C19 12.125 18.2635 14.078 17.0319 15.6177L22.7071 21.2929L21.2929 22.7071L15.6177 17.0319Z" clipRule="evenodd" fillRule="evenodd"></path>
-                            </svg>
-                            <input
-                                value={searchValue}
-                                onChange={handleChange}
-                                type="text"
-                                className={`search_input ${showSearch ? 'show' : ''}`} ref={searchRef}
-                                placeholder="제목, 사람, 장르"
-                                autoFocus
-                            />
+                        <div className={`search_wrapper ${showSearch ? 'show' : ''}`} ref={searchRef}>
+                                <div className="search_box">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" role="img" viewBox="0 0 24 24" width="24"
+                                         height="24" data-icon="MagnifyingGlassStandard" aria-hidden="true" className="search_inner_icon">
+                                        <path fill="currentColor" d="M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10ZM15.6177 17.0319C14.078 18.2635 12.125 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10C19 12.125 18.2635 14.078 17.0319 15.6177L22.7071 21.2929L21.2929 22.7071L15.6177 17.0319Z" clipRule="evenodd" fillRule="evenodd"></path>
+                                    </svg>
+                                    <input
+                                        value={searchValue}
+                                        onChange={handleChange}
+                                        type="text"
+                                        className="search_input"
+                                        placeholder="제목, 사람, 장르"
+                                        autoFocus
+                                    />
+                                </div>
                         </div>
                     )}
 
@@ -82,7 +84,7 @@ export default function Nav() {
 
                     <img
                         alt="User logged"
-                        src="https://occ-0-8124-325.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABXh10ggeTTdhZO1JIH_SNQ4gp0vsNnWfE8Mg2ckwzGvUzJMRpPFCujRK3Ex5K9VbkIyvUHQ92LBVdsemkj6zlpquL-qWMCNKeg.png?r=229"
+                        src="https://occ-0-4796-988.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABbme8JMz4rEKFJhtzpOKWFJ_6qX-0y5wwWyYvBhWS0VKFLa289dZ5zvRBggmFVWVPL2AAYE8xevD4jjLZjWumNo.png?r=a41"
                         className="nav_avatar"
                     />
                 </div>
