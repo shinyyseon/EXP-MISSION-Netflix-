@@ -9,8 +9,21 @@ export default function DetailPage() {
 
     useEffect(() => {
         async function fetchData() {
-            const request = await axios.get(`/movie/${movieId}`);
-            setMovie(request.data);
+            try {
+                const request = await axios.get(`/movie/${movieId}`);
+                setMovie(request.data);
+            } catch (error) {
+                if(error.response.status === 404) {
+                    try {
+                        const tvRequest = await axios.get(`/tv/${movieId}`);
+                        setMovie(tvRequest.data);
+                    } catch (tvError) {
+                        console.error("TV도 찾을 수 없음:", tvError);
+                    }
+                } else {
+                    console.error("영화도 찾을 수 없음:", error);
+                }
+            }
         }
         fetchData();
     }, [movieId]);
