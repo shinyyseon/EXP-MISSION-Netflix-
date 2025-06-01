@@ -15,6 +15,7 @@ const MovieModal = ({
     setModalOpen,
 }) => {
     const [videoKey, setVideoKey] = useState(null);
+    const [cast, setCast] = useState([]);
 
     useEffect(() => {
         const fetchVideo = async () => {
@@ -26,6 +27,10 @@ const MovieModal = ({
                 if (trailers.length > 0) {
                     setVideoKey(trailers[0].key);
                 }
+
+                const creditRes = await axios.get(`/movie/${id}/credits`);
+                setCast(creditRes.data.cast.slice(0, 10));
+
             } catch (error) {
                 console.error('예고편 로딩 실패:', error);
             }
@@ -73,6 +78,8 @@ const MovieModal = ({
                         <h2 className="modal_title">{title ? title : name}</h2>
                         <p className="modal_overview">평점: {vote_average}</p>
                         <p className="modal_overview">{overview}</p>
+
+                        <p className="modal_cast">출연 : {cast.map(actor => actor.name).join(", ")} ...더보기</p>
                     </div>
                 </div>
             </div>
